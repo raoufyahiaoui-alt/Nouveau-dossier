@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <title>PACK ROYALE — Football Cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Pack Royale accueil"><span class="brand-mark">PR</span><span>PACK <b>ROYALE</b></span></a>
+    <nav class="main-nav">
+      <button class="nav-link active" data-page="home">Accueil</button>
+      <button class="nav-link" data-page="shop">Boutique</button>
+      <button class="nav-link" data-page="collection">Collection</button>
+      <button class="nav-link" data-page="challenges">Défis</button>
+      <button class="nav-link" data-page="stats">Statistiques</button>
+    </nav>
+    <div class="wallet"><span class="coin">◆</span><strong id="coinBalance">1 500</strong><span class="wallet-label">CR</span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  <main>
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> LA COLLECTION COMMENCE ICI</div>
+          <h1>ÉCRIS TON<br><em>HISTOIRE.</em></h1>
+          <p>Ouvre des boosters, découvre les plus grandes stars du football et construis une collection légendaire.</p>
+          <div class="hero-actions"><button class="btn btn-gold" data-go="shop">DÉCOUVRIR LES BOOSTERS <span>↗</span></button><button class="btn btn-ghost" data-go="collection">Ma collection</button></div>
+          <div class="hero-proof"><div><b id="heroCardCount">0</b><span>CARTES OBTENUES</span></div><i></i><div><b>5</b><span>BOOSTERS</span></div><i></i><div><b>∞</b><span>À COLLECTIONNER</span></div></div>
+        </div>
+        <div class="hero-art">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="hero-card card-ghost"><div class="card-shine"></div><small>PACK ROYALE</small><b>LEGEND</b><span>★</span></div>
+          <div class="hero-card card-main"><div class="card-top"><span>PR • 2026</span><span>✦  ICON</span></div><div class="player-silhouette">⚽</div><div class="card-player">THE<br>CHAMPION</div><div class="card-bottom"><span>LIMITED EDITION</span><b>99</b></div></div>
+          <div class="floating-tag">COLLECT<br><b>THE BEST</b></div>
+        </div>
+      </div>
+      <div class="section-heading"><div><div class="eyebrow">À LA UNE</div><h2>BOOSTERS <em>POPULAIRES</em></h2></div><button class="text-link" data-go="shop">Voir la boutique ↗</button></div>
+      <div class="pack-grid" id="homePacks"></div>
+      <div class="feature-strip"><div class="feature-icon">✦</div><div><b>Chaque carte raconte une histoire.</b><span>Collectionne, échange et complète ton équipe de rêve.</span></div><button class="btn btn-small btn-ghost" data-go="collection">Explorer la collection</button></div>
+    </section>
+
+    <section class="page" id="page-shop">
+      <div class="page-intro"><div class="eyebrow">FAIS TON CHOIX</div><h1>LA <em>BOUTIQUE</em></h1><p>Choisis ton booster. La prochaine légende est peut-être à l'intérieur.</p></div>
+      <div class="pack-grid pack-grid-shop" id="shopPacks"></div>
+    </section>
+
+    <section class="page" id="page-collection">
+      <div class="page-intro"><div class="eyebrow">TON MUSÉE PERSONNEL</div><h1>MA <em>COLLECTION</em></h1><p>Retrouve toutes les cartes que tu as découvertes.</p></div>
+      <div class="collection-summary"><div><span>CARTES UNIQUES</span><b id="uniqueCount">0</b></div><div><span>CARTES AU TOTAL</span><b id="totalCount">0</b></div><div><span>TAUX DE COLLECTION</span><b id="completion">0%</b></div></div>
+      <div class="filters"><input id="searchCards" type="search" placeholder="Rechercher un joueur..."><select id="rarityFilter"><option value="all">Toutes les raretés</option><option>Commun</option><option>Rare</option><option>Épique</option><option>Légendaire</option><option>Icon</option></select><select id="positionFilter"><option value="all">Tous les postes</option><option>Attaquant</option><option>Milieu</option><option>Défenseur</option><option>Gardien</option></select></div>
+      <div class="cards-grid" id="collectionGrid"></div>
+      <div class="empty-state" id="emptyCollection"><div>▧</div><h3>Ta collection est vide</h3><p>Ouvre ton premier booster pour découvrir tes premières cartes.</p><button class="btn btn-gold" data-go="shop">Voir les boosters</button></div>
+    </section>
+
+    <section class="page" id="page-challenges">
+      <div class="page-intro"><div class="eyebrow">TRANSFORME TES DOUBLONS</div><h1>LES <em>DÉFIS</em></h1><p>Échange tes cartes en double contre des crédits.</p></div>
+      <div class="challenge-panel"><div class="challenge-symbol">⇄</div><div><h2>ÉCHANGE DE DOUBLONS</h2><p>Chaque carte en double peut être convertie en crédits. Les cartes uniques sont conservées.</p></div><div class="challenge-reward"><span>RÉCOMPENSE</span><b>+<span id="exchangeReward">0</span> CR</b></div><button class="btn btn-gold" id="exchangeBtn">ÉCHANGER MES DOUBLONS</button></div>
+      <div class="section-heading"><div><div class="eyebrow">TON INVENTAIRE</div><h2>CARTES EN <em>DOUBLE</em></h2></div></div><div class="duplicate-list" id="duplicateList"></div>
+    </section>
+
+    <section class="page" id="page-stats">
+      <div class="page-intro"><div class="eyebrow">TON PARCOURS</div><h1>TES <em>STATISTIQUES</em></h1><p>Analyse ta progression de collectionneur.</p></div>
+      <div class="stats-grid"><div class="stat-card"><span>BOOSTERS OUVERTS</span><b id="statPacks">0</b><small>Depuis tes débuts</small></div><div class="stat-card"><span>CARTES COLLECTÉES</span><b id="statCards">0</b><small>Doublons inclus</small></div><div class="stat-card"><span>JOUEUR LE PLUS RARE</span><b class="stat-special" id="statBest">—</b><small>Ta meilleure découverte</small></div><div class="stat-card"><span>CRÉDITS DISPONIBLES</span><b id="statCoins">1 500</b><small>Solde actuel</small></div></div>
+      <div class="section-heading"><div><div class="eyebrow">RÉPARTITION</div><h2>TES <em>RARETÉS</em></h2></div></div><div class="rarity-chart" id="rarityChart"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">PR</span><span>PACK <b>ROYALE</b></span></a><span>© 2026 PACK ROYALE — Projet de collection football</span><span class="footer-note">Fait pour les passionnés ⚽</span></footer>
+
+  <div class="modal-backdrop" id="openingModal" aria-hidden="true">
+    <div class="opening-modal"><button class="modal-close" id="closeModal" aria-label="Fermer">×</button><div class="eyebrow">PACK ROYALE PRESENTS</div><h2 id="openingTitle">TON BOOSTER</h2><div class="opening-pack" id="openingPack"><div class="pack-emblem">PR</div><b id="openingPackName">GOLD PACK</b><span>✦ ✦ ✦</span></div><p id="openingMessage">Le suspense est à son comble...</p><button class="btn btn-gold" id="revealBtn">OUVRIR LE BOOSTER</button><div class="revealed-cards" id="revealedCards"></div><button class="btn btn-ghost hidden" id="finishOpening">CONTINUER</button></div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
